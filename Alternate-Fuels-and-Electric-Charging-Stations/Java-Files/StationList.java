@@ -5,6 +5,8 @@
 
 package alternativeFuel;
 
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
@@ -28,9 +30,10 @@ import com.google.gson.stream.JsonReader;
  */
 public class StationList {
 	
-	private Station[] stations;
+	private ArrayList<Station> inputStations;
 	private ArrayList<String> fuelTypes;
 	
+	private Station[] stations;
 	/**
 	 * <h4>StationList</h4>
 	 * <p>public StationList(Reader json) throws IOException</p>
@@ -43,16 +46,53 @@ public class StationList {
 	 * through the parameters
 	 */
 	public StationList(Reader json) throws IOException {
+		
+		inputStations = new ArrayList<Station>();
 		JsonReader reader = new JsonReader(json);
 		
 		try {
-			stations = readStations(reader);
+			inputStations = readStations(reader);
 		} catch (IOException e) {
 			System.err.println("Caught IOException: " + e.getMessage());
 		} finally {
 			reader.close();
 		}
 		
+		stations = inputStations.toArray(new Station[inputStations.size()]);
+		fuelTypes = readFuelTypes(stations);
+	}
+	
+	/**
+	 * <h4>StationList</h4>
+	 * <p>public StationList(String filePath) throws IOException</p>
+	 * <p>Creates a new StationList when given a file path (as a String) to a 
+	 * folder containing JSON files. The file path must be the full system path 
+	 * and the folder must only contain JSON files containing geographic data 
+	 * (GeoJSON) for alternative fueling stations that is in the oden unified format.
+	 * @param filePath - The file path to the folder containing the JSON files
+	 * @throws IOException if there is a problem reading in data from the files
+	 */
+	public StationList(String filePath) throws IOException {
+		
+		inputStations = new ArrayList<Station>();
+		File folder = new File(filePath);
+		File[] fileList = folder.listFiles();
+		
+		try {
+			
+			for (int i = 0; i < fileList.length; i++) {
+				
+				if (fileList[i].isFile() && fileList[i].getName().endsWith(".json")) {
+					
+					ArrayList<Station> temp = readStations(new JsonReader(new FileReader(fileList[i])));
+					inputStations.addAll(temp);
+				}
+			}
+		} catch (IOException e) {
+			System.err.println("Caught IOException: " + e.getMessage());
+		} 
+		
+		stations = inputStations.toArray(new Station[inputStations.size()]);
 		fuelTypes = readFuelTypes(stations);
 	}
 	
@@ -291,7 +331,7 @@ public class StationList {
 		return fuelTypes;
 	}
 	
-	private Station[] readStations(JsonReader reader) throws IOException {
+	private ArrayList<Station> readStations(JsonReader reader) throws IOException {
 		ArrayList<Station> readStations = new ArrayList<Station>();
 
 		reader.beginArray();
@@ -300,7 +340,7 @@ public class StationList {
 		}
 		reader.endArray();
 		
-		return readStations.toArray(new Station[readStations.size()]);
+		return readStations;
 	}
 	
 	private Station readStation(JsonReader reader) throws IOException {
