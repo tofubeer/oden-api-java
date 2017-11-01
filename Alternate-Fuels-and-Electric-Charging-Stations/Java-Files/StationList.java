@@ -367,13 +367,13 @@ public class StationList {
 				reader.beginObject();
 				while (reader.hasNext()) {
 					String property = reader.nextName();
-					if (property.equals("fuelType")) {
+					if (property.equals("fT")) {
 						fuelType = reader.nextString();
-					} else if (property.equals("name")) {
+					} else if (property.equals("nm")) {
 						name = reader.nextString();
-					} else if (property.equals("address")) {
+					} else if (property.equals("adr")) {
 						address = reader.nextString();
-					} else if (property.equals("access")) {
+					} else if (property.equals("ac")) {
 						access = reader.nextString();
 					} else {
 						reader.skipValue();
