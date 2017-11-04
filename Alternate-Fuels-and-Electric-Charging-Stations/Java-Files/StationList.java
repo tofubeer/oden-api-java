@@ -8,6 +8,8 @@ package alternativeFuel;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -87,6 +89,35 @@ public class StationList {
 					ArrayList<Station> temp = readStations(new JsonReader(new FileReader(fileList[i])));
 					inputStations.addAll(temp);
 				}
+			}
+		} catch (IOException e) {
+			System.err.println("Caught IOException: " + e.getMessage());
+		} 
+		
+		stations = inputStations.toArray(new Station[inputStations.size()]);
+		fuelTypes = readFuelTypes(stations);
+	}
+	
+	/**
+	 * <h4>StationList</h4>
+	 * <p>public StationList(InputStream[] inputStreams) throws IOException</p>
+	 * <p>Creates a new StationList when given an array of InputStream objects that are 
+	 * being reading JSON files. The InputStreams must be from JSON files 
+	 * containing geographic data (GeoJSON) for alternative fueling stations that are 
+	 * in the oden unified format.
+	 * @param inputStreams - The array of InputStreams to the JSON files
+	 * @throws IOException if there is a problem reading in data from the files
+	 */
+	public StationList(InputStream[] inputStreams) throws IOException {
+		
+		inputStations = new ArrayList<Station>();
+		
+		try {
+			
+			for (int i = 0; i < inputStreams.length; i++) {
+									
+				ArrayList<Station> temp = readStations(new JsonReader(new InputStreamReader(inputStreams[i])));
+				inputStations.addAll(temp);
 			}
 		} catch (IOException e) {
 			System.err.println("Caught IOException: " + e.getMessage());
