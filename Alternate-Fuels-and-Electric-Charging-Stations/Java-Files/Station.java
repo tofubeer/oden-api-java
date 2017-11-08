@@ -33,7 +33,7 @@ public class Station {
 	private String access;
 	
 	/**
-	 * <h4>Station</h4>
+	 * <h1>Station</h1>
 	 * <p>Station(double latitude, double longitude, String name)</p>
 	 * <p>This constructor is used when only the mandatory information
 	 * about a station is available.</p>
@@ -54,7 +54,7 @@ public class Station {
 	}
 	
 	/**
-	 * <h4>Station</h4>
+	 * <h1>Station</h1>
 	 * <p>Station(double latitude, double longitude, String name,
 	 * String fuelType, String address, String access)</p>
 	 * <p>This Station constructor is preferred as it uses all available fields.</p> 
@@ -79,7 +79,7 @@ public class Station {
 	}
 	
 	/**
-	 * <h4>displayStation</h4>
+	 * <h1>displayStation</h1>
 	 * <p>displayStation()</p>
 	 * <p>Prints a formatted description of the Station to System.out</p>
 	 */
@@ -90,7 +90,7 @@ public class Station {
 	}
 
 	/**
-	 * <h4>getLatitude</h4>
+	 * <h1>getLatitude</h1>
 	 * <p>getLatitude()</p>
 	 * <p>Retrieves the latitude of the Station.</p>
 	 * @return the latitude
@@ -100,7 +100,7 @@ public class Station {
 	}
 
 	/**
-	 * <h4>getLongitude</h4>
+	 * <h1>getLongitude</h1>
 	 * <p>getLongitude()</p>
 	 * <p>Retrieves the longitude of the Station.</p>
 	 * @return the longitude
@@ -110,7 +110,7 @@ public class Station {
 	}
 
 	/**
-	 * <h4>getName</h4>
+	 * <h1>getName</h1>
 	 * <p>getName()</p>
 	 * <p>Retrieves the name of the Station.</p>
 	 * @return the name
@@ -120,7 +120,7 @@ public class Station {
 	}
 
 	/**
-	 * <h4>getFuelType</h4>
+	 * <h1>getFuelType</h1>
 	 * <p>getFuelType()</p>
 	 * <p>Retrieves the fuel type of the Station.</p>
 	 * @return the fuelType
@@ -130,7 +130,7 @@ public class Station {
 	}
 
 	/**
-	 * <h4>getAddress</h4>
+	 * <h1>getAddress</h1>
 	 * <p>getAddress()</p>
 	 * <p>Retrieves the address of the Station.</p>
 	 * @return the address
@@ -140,7 +140,7 @@ public class Station {
 	}
 
 	/**
-	 * <h4>getAccess</h4>
+	 * <h1>getAccess</h1>
 	 * <p>getAccess()</p>
 	 * <p>Retrieves the accessibility of the Station.</p>
 	 * @return the access

@@ -28,7 +28,7 @@ import com.google.gson.stream.JsonReader;
  * <p>This class makes use of the Station class which is used to represent a 
  * single alternative fueling station.</p>
  * @author Sam Collins
- * @version 1.0
+ * @version 1.5
  */
 public class StationList {
 	
@@ -36,8 +36,9 @@ public class StationList {
 	private ArrayList<String> fuelTypes;
 	
 	private Station[] stations;
+	
 	/**
-	 * <h4>StationList</h4>
+	 * <h1>StationList</h1>
 	 * <p>public StationList(Reader json) throws IOException</p>
 	 * <p>Creates a new StationList when given a Reader to a JSON file.
 	 * For the list to be created properly the JSON file must contain
@@ -65,7 +66,7 @@ public class StationList {
 	}
 	
 	/**
-	 * <h4>StationList</h4>
+	 * <h1>StationList</h1>
 	 * <p>public StationList(String filePath) throws IOException</p>
 	 * <p>Creates a new StationList when given a file path (as a String) to a 
 	 * folder containing JSON files. The file path must be the full system path 
@@ -99,7 +100,7 @@ public class StationList {
 	}
 	
 	/**
-	 * <h4>StationList</h4>
+	 * <h1>StationList</h1>
 	 * <p>public StationList(InputStream[] inputStreams) throws IOException</p>
 	 * <p>Creates a new StationList when given an array of InputStream objects that are 
 	 * being reading JSON files. The InputStreams must be from JSON files 
@@ -128,7 +129,7 @@ public class StationList {
 	}
 	
 	/**
-	 * <h4>getAllStations</h4>
+	 * <h1>getAllStations</h1>
 	 * <p>public Station[] getAllStations()</p>
 	 * <p>Retrieves the full list of Stations as an array.</p>
 	 * @return The full list of Stations
@@ -138,7 +139,7 @@ public class StationList {
 	}
 	
 	/**
-	 * <h4>getFuelTypes</h4>
+	 * <h1>getFuelTypes</h1>
 	 * <p>public String[] getFuelTypes</p>
 	 * <p>Retrieves the list of fuel types as an array of Strings.</p>
 	 * @return The list of fuel types
@@ -148,7 +149,7 @@ public class StationList {
 	}
 	
 	/**
-	 * <h4>getClosestStation</h4>
+	 * <h1>getClosestStation</h1>
 	 * <p>public Station getClosestStation(double latitude, double longitude)</p>
 	 * <p>Takes in the latitude and longitude as doubles and returns the 
 	 * Station in the list that is closest to the given coordinates.</p>
@@ -182,7 +183,7 @@ public class StationList {
 	}
 	
 	/**
-	 * <h4>sortByDistance</h4>
+	 * <h1>sortByDistance</h1>
 	 * <p>public Station[] sortByDistance(final double latitude, final double longitude)</p>
 	 * <p>Takes in the latitude and longitude as doubles and returns the list of Stations
 	 * sorted from closest to farthest away from the given coordinates. The list is returned
@@ -218,7 +219,7 @@ public class StationList {
 	}
 	
 	/**
-	 * <h4>searchByName</h4>
+	 * <h1>searchByName</h1>
 	 * <p>public Station[] searchByName(String name)</p>
 	 * <p>Takes in a String and returns an array of all
 	 * stations that have a name containing the keyword given.</p>
@@ -243,7 +244,7 @@ public class StationList {
 	}
 	
 	/**
-	 * <h4>searchByAddress</h4>
+	 * <h1>searchByAddress</h1>
 	 * <p>public Station[] searchByAddress(String address)</p>
 	 * <p>Takes in a String and returns an array of all
 	 * stations that have an address containing the keyword given.</p>
@@ -267,7 +268,7 @@ public class StationList {
 	}
 
 	/**
-	 * <h4>getPublicStations</h4>
+	 * <h1>getPublicStations</h1>
 	 * <p>public Station[] getPublicStations()</p>
 	 * <p>Returns an array of all stations that have an access value equal
 	 * to "Public".</p> 
@@ -290,7 +291,7 @@ public class StationList {
 	}
 	
 	/**
-	 * <h4>getPrivateStations</h4>
+	 * <h1>getPrivateStations</h1>
 	 * <p>public Station[] getPrivateStations()</p>
 	 * <p>Returns an array of all stations that have an access values
 	 * other than "Public". Values can include "Private", "City Vehicle use only",
@@ -314,7 +315,7 @@ public class StationList {
 	}
 	
 	/**
-	 * <h4>filterByFuelType</h4>
+	 * <h1>filterByFuelType</h1>
 	 * <p>public Station[] filterByFuelTypes()</p>
 	 * <p>Takes in a fuel type as a String and returns an array of 
 	 * all stations with the given fuel type.</p>
