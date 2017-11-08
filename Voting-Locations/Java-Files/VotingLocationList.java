@@ -37,7 +37,7 @@ public class VotingLocationList {
 	private Location[] locations;
 	
 	/**
-	 * <h4>VotingLocationList</h4>
+	 * <h1>VotingLocationList</h1>
 	 * <p>public VotingLocationList(Reader json) throws IOException</p>
 	 * <p>Creates a new VotingLocationList when given a Reader to a JSON file.
 	 * For the list to be created properly the JSON file must contain
@@ -64,7 +64,7 @@ public class VotingLocationList {
 	}
 	
 	/**
-	 * <h4>VotingLocationList</h4>
+	 * <h1>VotingLocationList</h1>
 	 * <p>public VotingLocationList(String filePath) throws IOException</p>
 	 * <p>Creates a new VotingLocationList when given a file path (as a String) to a 
 	 * folder containing JSON files. The file path must be the full system path 
@@ -97,7 +97,7 @@ public class VotingLocationList {
 	}
 	
 	/**
-	 * <h4>VotingLocationList</h4>
+	 * <h1>VotingLocationList</h1>
 	 * <p>public VotingLocationList(InputStream[] inputStreams) throws IOException</p>
 	 * <p>Creates a new VotingLocationList when given an array of InputStream objects that are 
 	 * being reading JSON files. The InputStreams must be from JSON files 
@@ -125,7 +125,7 @@ public class VotingLocationList {
 	}
 	
 	/**
-	 * <h4>getAllLocations</h4>
+	 * <h1>getAllLocations</h1>
 	 * <p>public Location[] getAllLocation()</p>
 	 * <p>Retrieves the full list of Locations as an array.</p>
 	 * @return The full list of Locations
@@ -135,7 +135,7 @@ public class VotingLocationList {
 	}
 	
 	/**
-	 * <h4>getClosestLocation</h4>
+	 * <h1>getClosestLocation</h1>
 	 * <p>public Location getClosestLocation(double latitude, double longitude)</p>
 	 * <p>Takes in the latitude and longitude as doubles and returns the 
 	 * Location in the list that is closest to the given coordinates.</p>
@@ -169,7 +169,7 @@ public class VotingLocationList {
 	}
 
 	/**
-	 * <h4>sortByDistance</h4>
+	 * <h1>sortByDistance</h1>
 	 * <p>public Location[] sortByDistance(final double latitude, final double longitude)</p>
 	 * <p>Takes in the latitude and longitude as doubles and returns the list of Locations
 	 * sorted from closest to farthest away from the given coordinates. The list is returned
@@ -205,7 +205,7 @@ public class VotingLocationList {
 	}
 	
 	/**
-	 * <h4>searchByName</h4>
+	 * <h1>searchByName</h1>
 	 * <p>public Location[] searchByName(String name)</p>
 	 * <p>Takes in a String and returns an array of all
 	 * locations that have a name containing the keyword given.</p>
@@ -230,7 +230,7 @@ public class VotingLocationList {
 	}
 	
 	/**
-	 * <h4>searchByAddress</h4>
+	 * <h1>searchByAddress</h1>
 	 * <p>public Location[] searchByAddress(String address)</p>
 	 * <p>Takes in a String and returns an array of all
 	 * locations that have an address containing the keyword given.</p>

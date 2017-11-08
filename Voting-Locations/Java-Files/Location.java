@@ -28,7 +28,7 @@ public class Location {
 	private String address;
 	
 	/**
-	 * <h4>Location</h4>
+	 * <h1>Location</h1>
 	 * <p>Location(double latitude, double longitude, String name, String address)</p>
 	 * <p>Creates a new Station when given latitude, longitude, name, and address.</p>
 	 * @param latitude - The latitude of the Voting Location
@@ -45,7 +45,7 @@ public class Location {
 	}
 	
 	/**
-	 * <h4>displayLocation</h4>
+	 * <h1>displayLocation</h1>
 	 * <p>displayLocation()</p>
 	 * <p>Prints a formatted description of the Voting Location to System.out</p>
 	 */
@@ -55,7 +55,7 @@ public class Location {
 	}
 
 	/**
-	 * <h4>getLatitude</h4>
+	 * <h1>getLatitude</h1>
 	 * <p>getLatitude()</p>
 	 * <p>Retrieves the latitude of the Voting Location.</p>
 	 * @return the latitude
@@ -65,7 +65,7 @@ public class Location {
 	}
 
 	/**
-	 * <h4>getLongitude</h4>
+	 * <h1>getLongitude</h1>
 	 * <p>getLongitude()</p>
 	 * <p>Retrieves the longitude of the Voting Location.</p>
 	 * @return the longitude
@@ -75,7 +75,7 @@ public class Location {
 	}
 
 	/**
-	 * <h4>getName</h4>
+	 * <h1>getName</h1>
 	 * <p>getName()</p>
 	 * <p>Retrieves the name of the Voting Location.</p>
 	 * @return the name
@@ -85,7 +85,7 @@ public class Location {
 	}
 
 	/**
-	 * <h4>getAddress</h4>
+	 * <h1>getAddress</h1>
 	 * <p>getAddress()</p>
 	 * <p>Retrieves the address of the Voting Location.</p>
 	 * @return the address
