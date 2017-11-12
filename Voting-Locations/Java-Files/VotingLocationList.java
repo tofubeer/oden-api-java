@@ -6,7 +6,7 @@
 package votingLocations;
 
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -28,7 +28,7 @@ import com.google.gson.stream.JsonReader;
  * <p>This class makes use of the Location class which is used to represent a 
  * single Voting Location.</p>
  * @author Sam Collins
- * @version 1.0
+ * @version 1.1
  */
 public class VotingLocationList {
 
@@ -81,11 +81,13 @@ public class VotingLocationList {
 		
 		try {
 			
+			FileInputStream fileStream;
 			for (int i = 0; i < fileList.length; i++) {
 				
 				if (fileList[i].isFile() && fileList[i].getName().endsWith(".json")) {
 					
-					ArrayList<Location> temp = readLocations(new JsonReader(new FileReader(fileList[i])));
+					fileStream = new FileInputStream(fileList[i]);
+					ArrayList<Location> temp = readLocations(new JsonReader(new InputStreamReader(fileStream, "UTF-8")));
 					inputLocations.addAll(temp);
 				}
 			}
@@ -114,7 +116,7 @@ public class VotingLocationList {
 			
 			for (int i = 0; i < inputStreams.length; i++) {
 									
-				ArrayList<Location> temp = readLocations(new JsonReader(new InputStreamReader(inputStreams[i])));
+				ArrayList<Location> temp = readLocations(new JsonReader(new InputStreamReader(inputStreams[i], "UTF-8")));
 				inputLocations.addAll(temp);
 			}
 		} catch (IOException e) {

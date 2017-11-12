@@ -6,7 +6,7 @@
 package alternativeFuel;
 
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -28,7 +28,7 @@ import com.google.gson.stream.JsonReader;
  * <p>This class makes use of the Station class which is used to represent a 
  * single alternative fueling station.</p>
  * @author Sam Collins
- * @version 1.5
+ * @version 1.6
  */
 public class StationList {
 	
@@ -83,11 +83,13 @@ public class StationList {
 		
 		try {
 			
+			FileInputStream fileStream;
 			for (int i = 0; i < fileList.length; i++) {
 				
 				if (fileList[i].isFile() && fileList[i].getName().endsWith(".json")) {
 					
-					ArrayList<Station> temp = readStations(new JsonReader(new FileReader(fileList[i])));
+					fileStream = new FileInputStream(fileList[i]);
+					ArrayList<Station> temp = readStations(new JsonReader(new InputStreamReader(fileStream, "UTF-8")));
 					inputStations.addAll(temp);
 				}
 			}
@@ -117,7 +119,7 @@ public class StationList {
 			
 			for (int i = 0; i < inputStreams.length; i++) {
 									
-				ArrayList<Station> temp = readStations(new JsonReader(new InputStreamReader(inputStreams[i])));
+				ArrayList<Station> temp = readStations(new JsonReader(new InputStreamReader(inputStreams[i], "UTF-8")));
 				inputStations.addAll(temp);
 			}
 		} catch (IOException e) {
@@ -430,9 +432,5 @@ public class StationList {
 	     }
 	     reader.endArray();
 	     return coordinates;
-	   }
-	
-	
+	   }	
 }
-
-
