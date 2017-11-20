@@ -3,7 +3,8 @@
 <h3>Description</h3>
 	<p>The purpose of these libraries is to allow developers to convert the unified data set
 	into Java objects. Each package includes parsers to read in the data as well as methods
-	to search, sort, and access the data as a collection of Java objects.\n
+	to search, sort, and access the data as a collection of Java objects. 
+	<br>
 	Each package in "oden-api-java" includes Java class files and a pre-packaged JAR file
 	for developers to use in their projects. Each package corresponds to an oden converter and
 	open data set.</p>
