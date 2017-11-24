@@ -28,7 +28,7 @@ import com.google.gson.stream.JsonReader;
  * <p>This class makes use of the Artwork class which is used to represent a 
  * single piece of public art.</p>
  * @author Sam Collins
- * @version 1.0
+ * @version 1.1
  */
 public class ArtworkList {
 
@@ -83,11 +83,12 @@ public class ArtworkList {
 		
 		try {
 			
+			FileInputStream fileStream;
 			for (int i = 0; i < fileList.length; i++) {
 				
 				if (fileList[i].isFile() && fileList[i].getName().endsWith(".json")) {
 					
-					FileInputStream fileStream = new FileInputStream(fileList[i]);
+					fileStream = new FileInputStream(fileList[i]);
 					ArrayList<Artwork> temp = readArtworks(new JsonReader(new InputStreamReader(fileStream, "UTF-8")));
 					inputArtworks.addAll(temp);
 				}
@@ -107,6 +108,7 @@ public class ArtworkList {
 	 * being reading JSON files. The InputStreams must be from JSON files 
 	 * containing geographic data (GeoJSON) for public art that are 
 	 * in the oden unified format.
+	 * <p>It is recommended that this constructor be used with Android.</p>
 	 * @param inputStreams - The array of InputStreams to the JSON files
 	 * @throws IOException if there is a problem reading in data from the files
 	 */
@@ -224,6 +226,7 @@ public class ArtworkList {
 	 * <p>public Artwork[] searchByName(String name)</p>
 	 * <p>Takes in a String and returns an array of all
 	 * artworks that have a name containing the keyword given.</p>
+	 * <p>This method returns <b>null</b> if no results are found.</p>
 	 * @param name - The name of the Artwork being searched for
 	 * @return all the artworks that have a name containing the given keyword
 	 */
@@ -249,6 +252,7 @@ public class ArtworkList {
 	 * <p>public Artwork[] searchByAddress(String address)</p>
 	 * <p>Takes in a String and returns an array of all
 	 * artworks that have an address containing the keyword given.</p>
+	 * <p>This method returns <b>null</b> if no results are found.</p>
 	 * @param address - The address of the Artwork being searched for
 	 * @return all the artworks that have an address containing the given keyword
 	 */
@@ -273,6 +277,7 @@ public class ArtworkList {
 	 * <p>public Artwork[] searchByArtistName(String name)</p>
 	 * <p>Takes in a String representing the artists name and returns 
 	 * an array of all artworks that have an artist name containing the keyword given.</p>
+	 * <p>This method returns <b>null</b> if no results are found.</p>
 	 * @param artistName - The artist name of the Artwork being searched for
 	 * @return all the artworks that have an artist name containing the given keyword
 	 */
@@ -301,6 +306,7 @@ public class ArtworkList {
 	 * <p>The art type entered must be one of the already existing art types
 	 * stored in the "artTypes" list in this class. To view the existing art
 	 * types call the getArtTypes() method.</p>
+	 * <p>This method returns <b>null</b> if no results are found.</p>
 	 * @param artType - The art type the artworks are filtered by
 	 * @return a list of all artworks with the art type specified
 	 */
@@ -325,8 +331,7 @@ public class ArtworkList {
 		return null;
 	}
 	
-	
-	
+	//Reads in the art types during construction
 	private ArrayList<String> readArtTypes(Artwork[] artworks) {
 		ArrayList<String> artTypes = new ArrayList<String>();
 		
@@ -409,6 +414,7 @@ public class ArtworkList {
 				artType, summary, description);
 	}
 	
+	//Reads through the coordinates array in the json object
 	private ArrayList<Double> readCoordinates(JsonReader reader) throws IOException {
 	     ArrayList<Double> coordinates = new ArrayList<Double>();
 
@@ -419,10 +425,4 @@ public class ArtworkList {
 	     reader.endArray();
 	     return coordinates;
 	   }
-	
-	
-	
-	
-	
-	
 }

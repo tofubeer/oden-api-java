@@ -3,7 +3,7 @@
  * This file is under the protection of the Apache 2.0 License.
  **/
 
-package alternativeFuel;
+package alternateFuelStations;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -28,7 +28,7 @@ import com.google.gson.stream.JsonReader;
  * <p>This class makes use of the Station class which is used to represent a 
  * single alternative fueling station.</p>
  * @author Sam Collins
- * @version 1.6
+ * @version 1.7
  */
 public class StationList {
 	
@@ -108,6 +108,7 @@ public class StationList {
 	 * being reading JSON files. The InputStreams must be from JSON files 
 	 * containing geographic data (GeoJSON) for alternative fueling stations that are 
 	 * in the oden unified format.
+	 * <p>It is recommended that this constructor be used with Android.</p>
 	 * @param inputStreams - The array of InputStreams to the JSON files
 	 * @throws IOException if there is a problem reading in data from the files
 	 */
@@ -225,6 +226,7 @@ public class StationList {
 	 * <p>public Station[] searchByName(String name)</p>
 	 * <p>Takes in a String and returns an array of all
 	 * stations that have a name containing the keyword given.</p>
+	 * <p>This method returns <b>null</b> if no results are found.</p>
 	 * @param name - The name of the Station being searched for
 	 * @return all the stations that have a name containing the given keyword
 	 */
@@ -250,6 +252,7 @@ public class StationList {
 	 * <p>public Station[] searchByAddress(String address)</p>
 	 * <p>Takes in a String and returns an array of all
 	 * stations that have an address containing the keyword given.</p>
+	 * <p>This method returns <b>null</b> if no results are found.</p>
 	 * @param address - The address of the Station being searched for
 	 * @return all the stations that have an address containing the given keyword
 	 */
@@ -273,7 +276,8 @@ public class StationList {
 	 * <h1>getPublicStations</h1>
 	 * <p>public Station[] getPublicStations()</p>
 	 * <p>Returns an array of all stations that have an access value equal
-	 * to "Public".</p> 
+	 * to "Public".</p>
+	 * <p>This method returns <b>null</b> if no results are found.</p>
 	 * @return a list of all stations with an accessibility of "Public"
 	 */
 	public Station[] getPublicStations() {
@@ -298,7 +302,8 @@ public class StationList {
 	 * <p>Returns an array of all stations that have an access values
 	 * other than "Public". Values can include "Private", "City Vehicle use only",
 	 * etc.</p> 
-	 * @return a list of all stations with accessibilities other than "Public"  
+	 * <p>This method returns <b>null</b> if no results are found.</p>
+	 * @return a list of all stations with an accessibility other than "Public"  
 	 */
 	public Station[] getPrivateStations() {
 		ArrayList<Station> filterStations = new ArrayList<Station>();
@@ -324,6 +329,7 @@ public class StationList {
 	 * <p>The fuel type entered must be one of the already existing fuel types
 	 * stored in the "fuelTypes" list in this class. To view the existing fuel
 	 * types call the getFuelTypes() method.</p>
+	 * <p>This method returns <b>null</b> if no results are found.</p>
 	 * @param fuelType - The fuel type the stations are filtered by
 	 * @return a list of all stations with the fuel type specified
 	 */
@@ -348,6 +354,7 @@ public class StationList {
 		return null;
 	}
 	
+	//Reads in the fuel types during construction
 	private ArrayList<String> readFuelTypes(Station[] stations) {
 		ArrayList<String> fuelTypes = new ArrayList<String>();
 		

@@ -28,7 +28,7 @@ import com.google.gson.stream.JsonReader;
  * <p>This class makes use of the Location class which is used to represent a 
  * single Voting Location.</p>
  * @author Sam Collins
- * @version 1.1
+ * @version 1.2
  */
 public class VotingLocationList {
 
@@ -105,6 +105,7 @@ public class VotingLocationList {
 	 * being reading JSON files. The InputStreams must be from JSON files 
 	 * containing geographic data (GeoJSON) for voting locations that are 
 	 * in the oden unified format.
+	 * <p>It is recommended that this constructor be used with Android.</p>
 	 * @param inputStreams - The array of InputStreams to the JSON files
 	 * @throws IOException if there is a problem reading in data from the files
 	 */
@@ -211,6 +212,7 @@ public class VotingLocationList {
 	 * <p>public Location[] searchByName(String name)</p>
 	 * <p>Takes in a String and returns an array of all
 	 * locations that have a name containing the keyword given.</p>
+	 * <p>This method returns <b>null</b> if no results are found.</p>
 	 * @param name - The name of the Location being searched for
 	 * @return all the locations that have a name containing the given keyword
 	 */
@@ -236,6 +238,7 @@ public class VotingLocationList {
 	 * <p>public Location[] searchByAddress(String address)</p>
 	 * <p>Takes in a String and returns an array of all
 	 * locations that have an address containing the keyword given.</p>
+	 * <p>This method returns <b>null</b> if no results are found.</p>
 	 * @param address - The address of the Location being searched for
 	 * @return all the locations that have an address containing the given keyword
 	 */

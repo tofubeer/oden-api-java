@@ -3,17 +3,15 @@
  * This file is under the protection of the Apache 2.0 License.
  **/
 
-package alternativeFuel;
+package alternateFuelStations;
 
 /**
  * <p>The Station class is used to represent an alternative fueling station. 
  * It holds the information for the station's latitude, longitude, name, 
  * fuel type, address, and accessibility.</p>
  * 
- * <p>The Station class can be constructed using only mandatory fields 
- * (latitude, longitude, and name) or by using all 6 fields. The Station class 
- * also contains getters used to retrieve the various pieces of information 
- * about the Station.</p>
+ * <p>The Station class contains getters used to retrieve the various 
+ * pieces of information about the Station.</p>
  * 
  * <p>This class is to be used in conjunction with the StationList class
  * which extracts data from a Json file that is then passed to the Station
@@ -34,30 +32,8 @@ public class Station {
 	
 	/**
 	 * <h1>Station</h1>
-	 * <p>Station(double latitude, double longitude, String name)</p>
-	 * <p>This constructor is used when only the mandatory information
-	 * about a station is available.</p>
-	 * <p>Creates a new Station when given latitude, longitude, and name.</p>
-	 * @param latitude - The latitude of the Station
-	 * @param longitude - The longitude of the Station
-	 * @param name - The name of the Station
-	 */
-	public Station(double latitude, double longitude, String name) {
-		
-		this.latitude = latitude;
-		this.longitude = longitude;
-		this.name = name;
-		
-		this.fuelType = "No Value Entered";
-		this.address = "No Value Entered";
-		this.access = "No Value Entered";
-	}
-	
-	/**
-	 * <h1>Station</h1>
 	 * <p>Station(double latitude, double longitude, String name,
 	 * String fuelType, String address, String access)</p>
-	 * <p>This Station constructor is preferred as it uses all available fields.</p> 
 	 * <p>Creates a new Station when given latitude, longitude, name, fuel type,
 	 * address, and accessibility.</p>
 	 * @param latitude - The latitude of the Station
@@ -148,6 +124,5 @@ public class Station {
 	public String getAccess() {
 		return access;
 	}
-
 
 }
